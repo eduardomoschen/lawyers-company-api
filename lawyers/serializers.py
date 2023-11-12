@@ -1,8 +1,11 @@
-from rest_framework import serializers
-from .models import Lawyer
+from rest_framework.serializers import ModelSerializer
+from lawyers.models import Lawyer
+from company.serializers import CompanySerializer
 
 
-class LawyerSerializer(serializers.ModelSerializer):
+class LawyerSerializer(ModelSerializer):
+    company = CompanySerializer()
+
     class Meta:
         model = Lawyer
-        fields = '__all__'
+        fields = ('username', 'bio', 'company')

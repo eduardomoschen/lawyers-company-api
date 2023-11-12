@@ -3,8 +3,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
-from .models import Lawyer
-from .serializers import LawyerSerializer
+from lawyers.models import Lawyer
+from lawyers.serializers import LawyerSerializer
 
 
 class LawyerList(APIView):

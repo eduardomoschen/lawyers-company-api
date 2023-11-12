@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Lawyer
+from lawyers.models import Lawyer
 
 
 @admin.register(Lawyer)
-class LawyreAdmin(admin.ModelAdmin):
-    fields = ('username', 'bio')
+class LawyerAdmin(admin.ModelAdmin):
+    ...
