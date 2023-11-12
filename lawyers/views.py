@@ -5,24 +5,27 @@ from django.shortcuts import get_object_or_404
 from django.db.models import Q
 from lawyers.models import Lawyer
 from lawyers.serializers import LawyerSerializer
+from rest_framework.permissions import IsAuthenticated
+from .permissions import IsOwnerOrReadOnly
 
 
 class LawyerList(APIView):
+    permission_classes = [IsAuthenticated]
+
     def get(self, request):
         query = request.GET.get('query')
 
-        if query == None:
+        if query is None:
             query = ''
 
-        laywers = Lawyer.objects.filter(
+        lawyers = Lawyer.objects.filter(
             Q(username__icontains=query) | Q(bio__icontains=query)
         )
 
-        if not laywers.exists():
+        if not lawyers.exists():
             return Response(status=status.HTTP_204_NO_CONTENT)
 
-        serializer = LawyerSerializer(laywers, many=True)
-
+        serializer = LawyerSerializer(lawyers, many=True)
         return Response(serializer.data)
 
     def post(self, request):
@@ -30,13 +33,14 @@ class LawyerList(APIView):
 
         if serializer.is_valid():
             serializer.save()
-
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class LawyerDetail(APIView):
+    permission_classes = [IsAuthenticated, IsOwnerOrReadOnly]
+
     def get_lawyer(self, username):
         lawyer = get_object_or_404(
             Lawyer.objects.all(),
