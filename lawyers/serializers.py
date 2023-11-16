@@ -8,7 +8,7 @@ class LawyerSerializer(ModelSerializer):
     Serializer para o modelo Lawyer.
 
     Atributos:
-        company: usado para listar as empresas que o advogado trabalha.
+        company: Usado para listar as empresas que o advogado trabalha.
 
     Métodos:
         Não há métodos neste serializer.
