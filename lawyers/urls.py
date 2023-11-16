@@ -8,7 +8,7 @@ from lawyers import views
 
 urlpatterns = [
     path(
-        'lawyers',
+        'lawyers/',
         views.LawyerList.as_view(),
         name='lawyrers-list-view'
     ),
