@@ -7,7 +7,7 @@ class Lawyer(models.Model):
     Representação do perfil do advogado.
 
     Atributos:
-        company: A companhia a qual o advogado está associado.
+        company: A empresa a qual o advogado está associado.
         name: O nome do advogado.
         username: O username definido pelo advogado.
         bio: A biografia do advogado.
