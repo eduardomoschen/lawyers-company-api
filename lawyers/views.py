@@ -22,7 +22,7 @@ class LawyerList(APIView):
         post: Cria uma nova conta de advogado. 
 
     Endpoint Base:
-        /api/v1/lawyers
+        /api/v1/lawyers/
     """
 
     permission_classes = [IsAuthenticated]
@@ -35,7 +35,7 @@ class LawyerList(APIView):
             request: O objeto da solicitação HTTP.
 
         Exemplos de Uso:
-            GET /api/v1/lawyers
+            GET /api/v1/lawyers/
             GET /api/v1/lawyers?query=
 
         Exemplo de Resposta JSON:
@@ -49,7 +49,7 @@ class LawyerList(APIView):
             }
 
         Retorna:
-            Response: Uma resposta HTTP contend uma lista de contas em formato
+            Response: Uma resposta HTTP contendo uma lista de contas em formato
             JSON.
         """
 
@@ -77,7 +77,7 @@ class LawyerList(APIView):
             request: O objeto da solicitação HTTP.
 
         Exemplos de Uso:
-            POST /api/v1/lawyers
+            POST /api/v1/lawyers/
 
         Exemplo de Request Body:
             {
@@ -149,7 +149,7 @@ class LawyerDetail(APIView):
 
         Parâmetros:
             request: O objeto da solicitação HTTP.
-            username: O username da conta a ser excluída.
+            username: O username da conta a ser encontrada.
 
         Retorna:
             Response: Uma resposta HTTP contendo os detalhes da conta em
@@ -166,7 +166,7 @@ class LawyerDetail(APIView):
 
         Parâmetros:
             request: O objeto da solicitação HTTP.
-            username: O username da conta a ser excluída.
+            username: O username da conta a ser atualizada.
 
         Retorna:
             Response: Uma resposta HTTP contendo os detalhes da conta 
