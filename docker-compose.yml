@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  djangoapp:
+    container_name: lawyers-company-app
+    build:
+      context: .
+    ports:
+      - 8000:8000
+    volumes:
+      - ./djangoapp:/djangoapp
+    env_file:
+      - ./dotenv_files/.env
+    depends_on:
+      - psql
+
+  psql:
+    container_name: laysers-company-psql
+    image: postgres:16-alpine
+    volumes:
+      - ./data/postgres/data:/var/lib/postgresql/data/
+    env_file:
+      - ./dotenv_files/.env
