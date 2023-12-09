@@ -15,7 +15,7 @@ services:
       - psql
 
   psql:
-    container_name: laysers-company-psql
+    container_name: lawyers-company-psql
     image: postgres:16-alpine
     volumes:
       - ./data/postgres/data:/var/lib/postgresql/data/
