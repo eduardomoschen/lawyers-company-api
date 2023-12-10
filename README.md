@@ -26,6 +26,7 @@ O LegalConnect é construído com tecnologias de ponta:
 - **Django:** Framework backend em Python que assegura robustez e escalabilidade.
 - **Django Rest Framework (DRF):** Criação de APIs RESTful para uma interação suave.
 - **Banco de Dados:** PostgreSQL.
+- **Docker:** Utilizado para criar e gerenciar os containers da aplicação e do banco de dados.
 
 ## Experimente Localmente
 
